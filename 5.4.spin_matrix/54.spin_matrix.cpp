@@ -17,12 +17,12 @@ public:
         for(int i = 0; i < length; i ++) {
             ans.push_back(matrix[currentRow][currentCol]);
             visited[currentRow][currentCol] = true;
-            currentRow += direction[directionIndex][0];
-            currentCol += direction[directionIndex][1];
             int nextRow = currentRow + direction[directionIndex][0];
             int nextCol = currentCol + direction[directionIndex][1];
-            if(visited[nextRow][nextCol] || nextRow < 0 || nextRow == row || nextCol < 0 || nextCol == col)
+            if(nextRow < 0 || nextRow == row || nextCol < 0 || nextCol == col || visited[nextRow][nextCol])
                 directionIndex = (directionIndex + 1) % 4;
+            currentRow += direction[directionIndex][0];
+            currentCol += direction[directionIndex][1];
         }
         return ans;
     }
