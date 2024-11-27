@@ -57,6 +57,11 @@
         "system_error": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
-        "text_encoding": "cpp"
+        "text_encoding": "cpp",
+        "set": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "stack": "cpp"
     }
 }
