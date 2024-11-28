@@ -1,6 +1,7 @@
 #include<string>
 #include<stack>
 #include<iostream>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -24,14 +25,21 @@ public:
             char tempNumber = char(digitsStack.top() + '0');
             ans += tempNumber;
             digitsStack.pop();
-            cout << tempNumber << endl;
         }
-        ans.reserve();
+        if(ans.size() == 0) {
+            return "0";
+        }
+        reverse(ans.begin(), ans.end());
+        int start = 0;
+        while(i < ans.size() && ans[i] == '0') {
+            i ++;
+        }
+        ans = ans.substr(i)
         return ans;
     }
 };
 
 int main() {
     Solution solution;
-    solution.removeKdigits("12434234");
+    solution.removeKdigits("12434234", 3);
 }
