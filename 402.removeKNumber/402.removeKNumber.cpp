@@ -26,20 +26,21 @@ public:
             ans += tempNumber;
             digitsStack.pop();
         }
+        reverse(ans.begin(), ans.end());
+        int start = 0;
+        while(start < ans.size() && ans[start] == '0') {
+            start ++;
+        }
+        ans = ans.substr(start);
         if(ans.size() == 0) {
             return "0";
         }
-        reverse(ans.begin(), ans.end());
-        int start = 0;
-        while(i < ans.size() && ans[i] == '0') {
-            i ++;
-        }
-        ans = ans.substr(i)
         return ans;
     }
 };
 
 int main() {
     Solution solution;
-    solution.removeKdigits("12434234", 3);
+    string ans = solution.removeKdigits("9", 1);
+    cout << ans << endl;
 }
