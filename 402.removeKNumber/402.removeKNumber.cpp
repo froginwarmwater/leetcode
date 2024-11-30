@@ -9,6 +9,7 @@ public:
     string removeKdigits(string num, int k) {
         stack<int> digitsStack;
         int length = num.size();
+        
         int count = 0;
         int i = 0;
         for(; i < length; i ++) {
@@ -19,6 +20,10 @@ public:
                 count ++;
             }
             digitsStack.push(number);
+        }
+        while(count < k) {
+            digitsStack.pop();
+                count ++;
         }
         string ans = "";
         while(!digitsStack.empty()) {
